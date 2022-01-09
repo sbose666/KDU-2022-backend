@@ -21,16 +21,24 @@ public class program_4 {
                     index = i;
                 }
             }
-            System.out.println(index); // If index == -1, it denotes no occurrence of s2 in s1
+            if (index == -1) {
+                // s2 is not present in s1
+                System.out.println(-1);
+            } else
+                System.out.println("The starting index of the last occurrence of s2 in s1 is: " + index); // If index == -1, it denotes no occurrence of s2 in s1
         }
 
         // Task-2
-        if (insertionIndex < 0 || insertionIndex >= s1.length()) {
+        if (insertionIndex < -1 || insertionIndex >= s1.length()) {
             // Since we are following 0 based indexing, the valid indexes are -> [0, Length of s1)
             // Thus, if this "if block" is executed, we have encountered an invalid index
             System.out.println("Invalid index!");
         } else {
             // We can use the substring method to clip out parts of the string as per our need
+            // s1 -> abcdef
+            // s2 -> ok
+            // insertionIndex -> 3
+            // result -> abcd + ok + ef
             String result = s1.substring(0, insertionIndex + 1) + s2 + s1.substring(insertionIndex + 1, s1.length());
             System.out.println("The resultant string: " + result);
         }
