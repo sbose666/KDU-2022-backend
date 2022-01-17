@@ -411,7 +411,7 @@ class Processor {
     public static ArrayList<String[]> readFromCSV() {
         ArrayList<String[]> inputData = new ArrayList<>();
         try {
-            FileReader file = new FileReader("D:\\Assignments\\Backend\\1\\IPL_2021_data.csv");
+            FileReader file = new FileReader("IPL_2021_data.csv");
             BufferedReader csvReader = new BufferedReader(file);
             csvReader.readLine();
             while (true) {
