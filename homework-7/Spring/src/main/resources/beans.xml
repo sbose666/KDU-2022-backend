@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="a" class="com.example.spring.A"/>
+    <bean id="b" class="com.example.spring.B"/>
+    <bean id="c" class="com.example.spring.C"/>
+    <bean id="talk" class="com.example.spring.Talk" scope="prototype" init-method="init">
+        <constructor-arg type="com.example.spring.A" ref="a"/>
+        <constructor-arg type="com.example.spring.B" ref="b"/>
+        <constructor-arg type="com.example.spring.C" ref="c"/>
+        <property name="propertyValue" value="true"/>
+    </bean>
+</beans>
