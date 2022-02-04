@@ -1,0 +1,41 @@
+[
+  {
+    "type": "BUY",
+    "data": {
+      "coin": "BTC",
+      "quantity": 100,
+      "wallet_address": "0xab190b6af9471e4c8e717418e940423c"
+    }
+  },
+  {
+    "type": "BUY",
+    "data": {
+      "coin": "DOGE",
+      "quantity": 100,
+      "wallet_address": "0xab190b6af9471e4c8e717418e940423c"
+    }
+  },
+  {
+    "type": "UPDATE_PRICE",
+    "data": {
+      "coin": "BTC",
+      "price": 36000
+    }
+  },
+  {
+    "type": "SELL",
+    "data": {
+      "coin": "BTC",
+      "quantity": 100,
+      "wallet_address": "0xab190b6af9471e4c8e717418e940423c"
+    }
+  },
+  {
+    "type": "SELL",
+    "data": {
+      "coin": "BTC",
+      "quantity": 100,
+      "wallet_address": "0xab190b6af9471e4c8e717418e940423c"
+    }
+  }
+]
