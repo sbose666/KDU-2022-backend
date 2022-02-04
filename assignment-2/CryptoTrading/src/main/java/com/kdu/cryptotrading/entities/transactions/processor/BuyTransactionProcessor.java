@@ -8,7 +8,7 @@ import com.kdu.cryptotrading.gui.LogGUI;
 
 
 public class BuyTransactionProcessor {
-    public static void processTransaction(BuyTransaction transaction) throws CustomException {
+    public static void processTransaction(BuyTransaction transaction) {
         new Thread(() -> {
             String traderName = TraderLibrary.getTrader(transaction.getWalletAddress()).getFirstName() + " " + TraderLibrary.getTrader(transaction.getWalletAddress()).getLastName();
             // Check for sufficient circulating supply of the coin and wait if not available

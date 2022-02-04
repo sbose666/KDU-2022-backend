@@ -93,7 +93,14 @@ public class Menu {
                         break;
                     case 7:
                         System.exit(0);
+                    default:
+                        System.out.println("Invalid input");
+                        break;
                 }
+                System.out.println("Do you want to continue? (y/n)");
+                input = sc.nextLine();
+                if (input.equals("n"))
+                    System.exit(0);
             }
         }).start();
     }
