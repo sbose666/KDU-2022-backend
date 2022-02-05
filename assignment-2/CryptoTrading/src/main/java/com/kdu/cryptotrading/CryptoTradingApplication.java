@@ -10,7 +10,16 @@ import com.kdu.cryptotrading.gui.Menu;
 import com.kdu.cryptotrading.gui.LogGUI;
 
 
+/**
+ * Driver class for the CryptoTrading application.
+ */
 public class CryptoTradingApplication {
+    /**
+     * Main method for the CryptoTrading application.
+     *
+     * @param args command line arguments
+     * @throws Exception if an error occurs
+     */
     public static void main(String[] args) throws Exception {
         LogGUI.initialize();
         CoinCSVReader.readFromCSV(".\\src\\main\\resources\\coins.csv");

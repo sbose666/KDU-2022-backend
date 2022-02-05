@@ -8,6 +8,12 @@ import com.kdu.cryptotrading.entities.transactions.*;
 import java.util.Random;
 
 public class TransactionProcessor {
+    /**
+     * Helper method to process transactions as per the type of transaction
+     *
+     * @param transaction Transaction to be processed
+     * @throws CustomException if the transaction is not valid
+     */
     public static void processTransaction(Transaction transaction) throws CustomException {
         Type type = Type.valueOf(transaction.getType());
         transaction.setBlockHash(getBlockHash());

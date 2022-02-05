@@ -11,6 +11,9 @@ import java.io.IOException;
 
 public class CoinCSVReader  {
     public static void readFromCSV(String pathToCSV) throws CustomException {
+        /**
+         * Reads the CSV file and creates a CoinLibrary object
+         */
         CSVReader csvReader = null;
         try {
             FileReader file = new FileReader(pathToCSV);

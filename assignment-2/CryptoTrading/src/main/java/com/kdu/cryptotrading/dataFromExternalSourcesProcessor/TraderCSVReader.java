@@ -11,6 +11,9 @@ import java.io.IOException;
 
 public class TraderCSVReader {
     public static void readFromCSV(String pathToCSV) throws CustomException {
+        /**
+         * Reads the CSV file and creates a TraderLibrary object
+         */
         CSVReader csvReader = null;
         try {
             FileReader file = new FileReader(pathToCSV);

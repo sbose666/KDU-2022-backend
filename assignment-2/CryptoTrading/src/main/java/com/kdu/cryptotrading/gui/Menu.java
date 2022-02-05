@@ -9,7 +9,13 @@ import com.kdu.cryptotrading.entities.TraderLibrary;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Menu class for the application.
+ */
 public class Menu {
+    /**
+     * Method to create the main menu of the application.
+     */
     public static void createMenu() {
         new Thread(() -> {
             Scanner sc = new Scanner(System.in);
@@ -86,7 +92,12 @@ public class Menu {
                         System.out.println("Enter the number of struggling traders you would like to see");
                         input = sc.nextLine();
                         bound = Integer.parseInt(input);
-                        List<Trader> strugglingTradersList = TraderLibrary.getStrugglingTraders(bound);
+                        List<Trader> strugglingTradersList = null;
+                        try {
+                            strugglingTradersList = TraderLibrary.getStrugglingTraders(bound);
+                        } catch (CustomException e) {
+                            System.err.println(e.getMessage());
+                        }
                         System.out.println("The top " + bound + " struggling traders are: ");
                         for (Trader trader : strugglingTradersList)
                             System.out.println(trader);

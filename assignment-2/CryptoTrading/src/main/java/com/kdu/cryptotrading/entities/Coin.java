@@ -2,6 +2,9 @@ package com.kdu.cryptotrading.entities;
 
 import lombok.Data;
 
+/**
+ * Coin class containing information about a coin.
+ */
 @Data
 public class Coin {
     private int rank;

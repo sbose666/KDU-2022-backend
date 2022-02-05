@@ -7,6 +7,12 @@ import com.kdu.cryptotrading.entities.transactions.SellTransaction;
 import com.kdu.cryptotrading.gui.LogGUI;
 
 public class SellTransactionProcessor {
+    /**
+     * Processes a sell transaction
+     * Checks if the trader has enough coins to sell
+     *
+     * @param transaction SellTransaction to be processed
+     */
     public static void processTransaction(SellTransaction transaction) {
         new Thread(() -> {
             String traderName = TraderLibrary.getTrader(transaction.getWalletAddress()).getFirstName() + " " + TraderLibrary.getTrader(transaction.getWalletAddress()).getLastName();

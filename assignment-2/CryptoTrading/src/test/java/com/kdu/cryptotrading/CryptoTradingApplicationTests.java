@@ -10,9 +10,14 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-
+/**
+ * Tester class for CryptoTradingApplication
+ */
 class CryptoTradingApplicationTests {
 
+    /**
+     * This test is to check if the Coin class is working properly
+     */
     @Test
     void checkCoin() {
         Coin coin = new Coin(1, "coin1", "c1", 100, 1);
@@ -22,6 +27,9 @@ class CryptoTradingApplicationTests {
         assert (coin.getCirculatingSupply() == 1);
     }
 
+    /**
+     * This test is to check if the Trader class is working properly
+     */
     @Test
     void checkTrader() {
         Trader trader = new Trader("t1", "t1", "11", "0x");
@@ -31,6 +39,9 @@ class CryptoTradingApplicationTests {
         assert (trader.getWalletAddress().equals("0x"));
     }
 
+    /**
+     * This test is to check if the CoinComparator class is working properly
+     */
     @Test
     void checkCoinComparator() {
         Coin coin1 = new Coin(1, "coin1", "c1", 100, 1);
@@ -46,6 +57,9 @@ class CryptoTradingApplicationTests {
         assert (coins.get(2).getSymbol().equals("c1"));
     }
 
+    /**
+     * This test is to check if the TopTraderComparator class is working properly
+     */
     @Test
     void checkTopTraderComparator() {
         Trader Trader1 = new Trader("t1", "t1", "11", "0x");
@@ -64,6 +78,9 @@ class CryptoTradingApplicationTests {
         assert (traders.get(2).getFirstName().equals("t1"));
     }
 
+    /**
+     * This test is to check if the StrugglingTraderComparator class is working properly
+     */
     @Test
     void checkStrugglingTraderComparator() {
         Trader Trader1 = new Trader("t1", "t1", "11", "0x");
@@ -82,6 +99,9 @@ class CryptoTradingApplicationTests {
         assert (traders.get(2).getFirstName().equals("t1"));
     }
 
+    /**
+     * This test is to check if the CustomException class is working properly
+     */
     @Test
     void checkCustomError() {
         CustomException customException = new CustomException("test");

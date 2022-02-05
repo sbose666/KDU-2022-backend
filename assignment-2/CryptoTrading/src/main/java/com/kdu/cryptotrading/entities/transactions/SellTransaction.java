@@ -3,6 +3,10 @@ package com.kdu.cryptotrading.entities.transactions;
 import lombok.Data;
 import lombok.ToString;
 
+/**
+ * Sell Transaction class
+ * Inherits from Transaction class
+ */
 @Data
 @ToString(callSuper = true)
 public class SellTransaction extends Transaction {

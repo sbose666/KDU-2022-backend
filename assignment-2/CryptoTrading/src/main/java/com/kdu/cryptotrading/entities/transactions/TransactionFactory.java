@@ -4,7 +4,17 @@ import com.kdu.cryptotrading.CustomErrors.CustomException;
 
 import java.util.ArrayList;
 
+/**
+ * Factory class for creating Transaction objects according to the type of the transaction.
+ */
 public class TransactionFactory {
+    /**
+     * Factory method for creating Transaction objects according to the type of the transaction.
+     *
+     * @param transactionData Array of Strings containing the data of the transaction.
+     * @return Transaction object.
+     * @throws CustomException if the transaction type is not supported.
+     */
     public static Transaction createTransaction(ArrayList<String> transactionData) throws CustomException {
         Type type = Type.valueOf(transactionData.get(0));
         String coin = transactionData.get(1);

@@ -8,6 +8,12 @@ import com.kdu.cryptotrading.gui.LogGUI;
 
 
 public class BuyTransactionProcessor {
+    /**
+     * Processes a buy transaction.
+     * Checks if there are enough coins to buy.
+     *
+     * @param transaction The buy transaction to process.
+     */
     public static void processTransaction(BuyTransaction transaction) {
         new Thread(() -> {
             String traderName = TraderLibrary.getTrader(transaction.getWalletAddress()).getFirstName() + " " + TraderLibrary.getTrader(transaction.getWalletAddress()).getLastName();

@@ -3,10 +3,16 @@ package com.kdu.cryptotrading.gui;
 import javax.swing.*;
 import javax.swing.text.DefaultCaret;
 
+/**
+ * GUI class for logging the ongoing transactions in the market.
+ */
 public class LogGUI {
     public static JFrame jFrame = new JFrame("Crypto Log");
     public static JTextArea jTextArea = new JTextArea();
 
+    /**
+     * Initializes the GUI.
+     */
     public static void initialize() {
         JScrollPane scroll = new JScrollPane(jTextArea);
         scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);

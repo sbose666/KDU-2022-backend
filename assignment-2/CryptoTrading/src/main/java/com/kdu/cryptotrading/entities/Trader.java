@@ -8,6 +8,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Trader class contains all the information about a trader.
+ */
 @Data
 public class Trader {
     private String firstName;
@@ -26,6 +29,13 @@ public class Trader {
         this.cryptoProfile = Collections.synchronizedMap(new HashMap<>());
     }
 
+    /**
+     * Add a coin to the trader's profile.
+     *
+     * @param coinSymbol the coin symbol
+     * @param quantity   the quantity of the coin
+     * @throws CustomException if the coin is not in the market
+     */
     public void addCoin(String coinSymbol, double quantity) throws CustomException {
         double curPrice = CoinLibrary.getCoin(coinSymbol).getPrice();
         if (cryptoProfile.containsKey(coinSymbol)) {
@@ -52,6 +62,13 @@ public class Trader {
         }
     }
 
+    /**
+     * Remove a coin from the trader's profile.
+     *
+     * @param coinSymbol the coin symbol
+     * @param quantity   the quantity of the coin
+     * @throws CustomException if the coin is not in the trader's profile
+     */
     public void removeCoin(String coinSymbol, double quantity) throws CustomException {
         double curPrice = CoinLibrary.getCoin(coinSymbol).getPrice();
         if (cryptoProfile.containsKey(coinSymbol)) {
@@ -77,14 +94,31 @@ public class Trader {
         }
     }
 
+    /**
+     * Check if the trader has the given coin.
+     *
+     * @param coinSymbol the coin symbol
+     * @return true if the trader has the coin, false otherwise
+     */
     public boolean traderHasCoin(String coinSymbol) {
         return cryptoProfile.containsKey(coinSymbol);
     }
 
+    /**
+     * Get the quantity of the given coin in the trader's profile.
+     *
+     * @param coinSymbol the coin symbol
+     * @return the quantity of the coin in the trader's profile
+     */
     public double getCoinQuantityInCryptoProfile(String coinSymbol) {
         return cryptoProfile.get(coinSymbol).stream().mapToDouble(x -> x.get(1)).sum();
     }
 
+    /**
+     * Get the profit of the trader.
+     *
+     * @return the profit of the trader
+     */
     public double getProfit() {
         for (String coinSymbol : cryptoProfile.keySet()) {
             for (ArrayList<Double> priceAndQuantity : cryptoProfile.get(coinSymbol)) {

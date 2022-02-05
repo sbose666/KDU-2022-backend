@@ -14,6 +14,9 @@ import java.util.ArrayList;
 
 public class TransactionJSONReader {
     public static void readFromJSON(String pathToJSON) throws Exception {
+        /**
+         * Reads the JSON file and processes the transactions in it.
+         */
         try {
             FileReader file = new FileReader(pathToJSON);
             JSONParser jsonParser = new JSONParser();
