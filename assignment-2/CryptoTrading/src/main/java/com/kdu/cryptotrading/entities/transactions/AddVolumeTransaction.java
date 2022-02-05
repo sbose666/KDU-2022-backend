@@ -1,0 +1,22 @@
+package com.kdu.cryptotrading.entities.transactions;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+/**
+ * Add volume transaction
+ * Inherits from Transaction class
+ */
+@Data
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
+public class AddVolumeTransaction extends Transaction {
+    private double volume;
+
+    AddVolumeTransaction(String coin, double volume) {
+        this.setType("ADD_VOLUME");
+        this.setCoinSymbol(coin);
+        this.volume = volume;
+    }
+}
