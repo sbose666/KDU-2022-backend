@@ -78,18 +78,11 @@ public class CoinLibrary {
             throw new CustomException("Not enough coins in the market");
         }
         ArrayList<Coin> coinArrayList = new ArrayList<>();
-        synchronizedMapOfCoins.forEach((k, v) -> {
-            coinArrayList.add(v);
-        });
-        List<Coin> result = Collections
-                .unmodifiableList(
-                        coinArrayList
-                                .stream()
-                                .sorted(new CoinComparator())
-                                .limit(bound)
-                                .collect(Collectors.toList())
-                );
-        return result;
+        synchronizedMapOfCoins.forEach((k, v) -> coinArrayList.add(new Coin(v)));
+        return coinArrayList
+                .stream()
+                .sorted(new CoinComparator())
+                .limit(bound).collect(Collectors.toUnmodifiableList());
     }
 
     /**

@@ -27,6 +27,6 @@ public class CryptoTradingApplication {
         TraderCSVReader.readFromCSV(".\\src\\main\\resources\\traders.csv");
         TraderLibrary.synchronizeMembers();
         Menu.createMenu();
-        TransactionJSONReader.readFromJSON(".\\src\\main\\resources\\small_transaction.json");
+        TransactionJSONReader.readFromJSON(".\\src\\main\\resources\\medium_transaction.json");
     }
 }

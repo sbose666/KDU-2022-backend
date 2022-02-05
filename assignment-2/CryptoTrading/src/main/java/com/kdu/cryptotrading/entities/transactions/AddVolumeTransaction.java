@@ -1,6 +1,7 @@
 package com.kdu.cryptotrading.entities.transactions;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
@@ -8,6 +9,7 @@ import lombok.ToString;
  * Inherits from Transaction class
  */
 @Data
+@EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class AddVolumeTransaction extends Transaction {
     private double volume;

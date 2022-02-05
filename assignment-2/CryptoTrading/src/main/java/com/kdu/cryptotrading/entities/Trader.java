@@ -18,6 +18,12 @@ public class Trader {
     private String phoneNumber;
     private String walletAddress;
     private double profit;
+    /**
+     * Synchronized Map of all the coins owned by the trader.
+     * Key: Coin name
+     * Value: ArrayList of all the orders for that coin.
+     * Each element in the ArrayList is a pair of the current market price of the coin and the quantity bought.
+     */
     private Map<String, ArrayList<ArrayList<Double>>> cryptoProfile;
 
     public Trader(String firstName, String lastName, String phoneNumber, String walletAddress) {
@@ -27,6 +33,17 @@ public class Trader {
         this.walletAddress = walletAddress;
         this.profit = 0.0;
         this.cryptoProfile = Collections.synchronizedMap(new HashMap<>());
+    }
+
+    /**
+     * Deep copy of the trader's profile.
+     *
+     * @param trader the trader
+     */
+    public Trader(Trader trader) {
+        this(trader.getFirstName(), trader.getLastName(), trader.getPhoneNumber(), trader.getWalletAddress());
+        this.cryptoProfile = new HashMap<>(trader.getCryptoProfile());
+        this.profit = trader.computeProfit();
     }
 
     /**
@@ -115,11 +132,12 @@ public class Trader {
     }
 
     /**
-     * Get the profit of the trader.
+     * Computes the profit of the trader.
+     * Based on realised and un-realised profit.
      *
      * @return the profit of the trader
      */
-    public double getProfit() {
+    public double computeProfit() {
         for (String coinSymbol : cryptoProfile.keySet()) {
             for (ArrayList<Double> priceAndQuantity : cryptoProfile.get(coinSymbol)) {
                 try {

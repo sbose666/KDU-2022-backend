@@ -106,18 +106,11 @@ public class TraderLibrary {
             throw new CustomException("Not enough traders in the market");
         }
         ArrayList<Trader> traderArrayList = new ArrayList<>();
-        synchronizedMapOfTraders.forEach((k, v) -> {
-            traderArrayList.add(v);
-        });
-        List<Trader> result = Collections
-                .unmodifiableList(
-                        traderArrayList
-                                .stream()
-                                .sorted(new TopTraderComparator())
-                                .limit(bound)
-                                .collect(Collectors.toList())
-                );
-        return result;
+        synchronizedMapOfTraders.forEach((k, v) -> traderArrayList.add(new Trader(v)));
+        return traderArrayList
+                .stream()
+                .sorted(new TopTraderComparator())
+                .limit(bound).collect(Collectors.toUnmodifiableList());
     }
 
     /**
@@ -132,17 +125,10 @@ public class TraderLibrary {
             throw new CustomException("Not enough traders in the market");
         }
         ArrayList<Trader> traderArrayList = new ArrayList<>();
-        synchronizedMapOfTraders.forEach((k, v) -> {
-            traderArrayList.add(v);
-        });
-        List<Trader> result = Collections
-                .unmodifiableList(
-                        traderArrayList
-                                .stream()
-                                .sorted(new StrugglingTraderComparator())
-                                .limit(bound)
-                                .collect(Collectors.toList())
-                );
-        return result;
+        synchronizedMapOfTraders.forEach((k, v) -> traderArrayList.add(new Trader(v)));
+        return traderArrayList
+                .stream()
+                .sorted(new StrugglingTraderComparator())
+                .limit(bound).collect(Collectors.toUnmodifiableList());
     }
 }

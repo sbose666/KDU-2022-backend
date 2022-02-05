@@ -21,4 +21,14 @@ public class Coin {
         this.circulatingSupply = circulatingSupply;
     }
 
+    /**
+     * Deep copy constructor for Coin class
+     */
+    public Coin(Coin coin) {
+        this.rank = coin.getRank();
+        this.name = coin.getName();
+        this.symbol = coin.getSymbol();
+        this.price = coin.getPrice();
+        this.circulatingSupply = coin.getCirculatingSupply();
+    }
 }
